@@ -2,23 +2,18 @@ package com.mml.adbwifidebug
 
 import android.app.Activity
 import android.app.Application
-import android.app.Application.ActivityLifecycleCallbacks
-import android.media.browse.MediaBrowser
 import android.os.Bundle
-import android.view.View
+import android.preference.PreferenceManager
 import com.coder.zzq.smartshow.core.SmartShow
-import com.coder.zzq.smartshow.core.lifecycle.ActivityLifecycleCallback
-import com.mml.adbwifidebug.activity.AboutActivity
-import android.os.Build
-import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import com.mml.adbwifidebug.activity.MainActivity
-import com.mml.adbwifidebug.utils.Common
+import com.mml.adbwifidebug.activity.SettingsActivity
+import com.mml.adbwifidebug.utils.LogUtil
+import com.mml.adbwifidebug.utils.SP
+import com.mml.adbwifidebug.utils.ThemeManager
+import io.multimoon.colorful.*
 
 
 /**
- * 项目名称：ADBWIFICONNECT
+ * 项目名称：ADBWIFIDEBUG
  * Created by Long on 2019/3/14.
  * 修改时间：2019/3/14 17:29
  */
@@ -33,7 +28,15 @@ class ADBApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        LogUtil.debug(BuildConfig.DEBUG).saveSd(false)
         SmartShow.init(this)
+        val defaults: Defaults = Defaults(
+            primaryColor = ThemeColor.ORANGE,
+            accentColor = ThemeColor.RED,
+            useDarkTheme = false,
+            translucent = false
+        )
+        initColorful(this, defaults)
         registerActivityLifecycleCallbacks(ADBActivityLifecycleCallbacks())
     }
 
@@ -45,52 +48,41 @@ class ADBApplication : Application() {
     private class ADBActivityLifecycleCallbacks : ActivityLifecycleCallbacks {
 
         override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
-            val toolbar: Toolbar? =activity?.findViewById(R.id.toolbar)
-            if ( toolbar!= null) {//找到 Toolbar 并且替换 Actionbar
-                when (activity) {
-                    is AboutActivity -> {
-                        activity.setSupportActionBar(toolbar)
-                        activity.supportActionBar!!.setHomeButtonEnabled(true)
-                        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-                        Common.setToolbarTitleCenter(toolbar)
-                    }
-                    is MainActivity -> {
-                        activity.setSupportActionBar(toolbar)
-                        Common.setTitleCenter(toolbar)
-                        activity.supportActionBar!!.setDisplayShowTitleEnabled(false)
-                    }
-                    else -> {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                            activity.setActionBar(toolbar as android.widget.Toolbar)
-                            activity.actionBar.setDisplayShowTitleEnabled(true)
-                        }
-                    }
-                }//when
-            }//if
+            Colorful().apply(activity!!, override = true, baseTheme = BaseTheme.THEME_MATERIAL)
+            LogUtil.i(msg = activity.localClassName)
         }
 
         override fun onActivityPaused(activity: Activity?) {
-            //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            LogUtil.i(msg = activity!!.localClassName)
+
         }
 
         override fun onActivityResumed(activity: Activity?) {
-            // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            when (activity) {
+                !is SettingsActivity -> {
+                    LogUtil.i(msg = activity!!.localClassName)
+                    if (ThemeManager.lastTheme != ThemeManager.nowTheme) {
+                        activity.recreate()
+                        ThemeManager.lastTheme = ThemeManager.nowTheme
+                    }
+                }
+            }
         }
 
         override fun onActivityStarted(activity: Activity?) {
-            // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            LogUtil.i(msg = activity!!.localClassName)
         }
 
         override fun onActivityDestroyed(activity: Activity?) {
-            // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            LogUtil.i(msg = activity!!.localClassName)
         }
 
         override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
-          //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            LogUtil.i(msg = activity!!.localClassName)
         }
 
         override fun onActivityStopped(activity: Activity?) {
-            //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            LogUtil.i(msg = activity!!.localClassName)
         }
     }
 }

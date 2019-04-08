@@ -1,17 +1,26 @@
 <resources>
-    <string name="app_name">ADBWIFIDEBUG</string>
+    <!--<string name="app_name">ADBWIFIDEBUG</string>-->
     <string name="string_tv_adb_status_closed">暂未开启ADB调试</string>
     <string name="string_tv_adb_status_opened">ADB调试已开启</string>
     <string name="string_btn_copy_ip_address">复制命令</string>
     <string name="string_btn_open_abd_close">关闭调试</string>
     <string name="string_btn_open_abd_open">打开调试</string>
     <string name="string_tv_tips">
-        1.此软件需要Root权限才能使用，若没有Root权限，请先将手机通过USB数据线与电脑连接并打开USB调试功能，电脑使用cmd 执行adb tcpip
+        1.此软件需要Root权限才能使用，若没有Root权限,请先将手机通过USB数据线与电脑连接并打开USB调试功能，电脑使用cmd 执行adb tcpip
         5555命令，再使用复制的地址进行连接，连接成功以后拔掉数据线即可。\n
         2.在cmd或在Android Studio的Terminal中输入以上命令即可（需先将adb添加到环境变量）。\n
         3.在adb.exe文件目录下创建一个.bat文件，拷贝以上命令保存，双击运行该.bat文件即可。\n
-        4.Android Studio下载插件 ADB WIFI CONNECT 插件进行连接
+        4.Android Studio下载插件 ADB WIFI CONNECT 插件进行连接。
     </string>
     <string name="string_tv_about">非常感谢你的使用,本工程已在github开源，更多点击链接访问。</string>
-    <string name="string_tv_about_github">GitHub:https://github.com/mamenglong</string>
+    <string name="string_tv_about_github">https://github.com/mamenglong/ADBWIFIDEBUG</string>
+
+
+    <string name="openDebug_short_name">打开调试</string>
+    <string name="openDebug_long_name">打开调试</string>
+    <string name="openDebug_disable_msg"></string>
+    <string name="title_activity_settings">设置</string>
+    <string name="title_activity_about">关于</string>
+
+
 </resources>

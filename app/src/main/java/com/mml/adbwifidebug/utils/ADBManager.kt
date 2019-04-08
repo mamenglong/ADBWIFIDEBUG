@@ -6,7 +6,7 @@ import java.io.*
 
 
 /**
- * 项目名称：ADBWIFICONNECT
+ * 项目名称：ADBWIFIDEBUG
  * Created by Long on 2019/3/14.
  * 修改时间：2019/3/14 15:38
  */
@@ -154,7 +154,7 @@ class ADBManager private constructor(private val pkgCodePath: String) {
             }
             if (dis != null) {
                 try {
-                    dis!!.close()
+                    dis.close()
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }

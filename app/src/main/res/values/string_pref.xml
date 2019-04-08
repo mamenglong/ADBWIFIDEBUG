@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Android N_MR1(7.1) or Higher is social recommended</string>
+    <string name="pref_description_social_recommendations">添加Shortcut功能，方便快捷，如果你所使用的系统此项功能被阉割请关闭此功能。</string>
+
+    <string name="pref_title_display_name">开发者</string>
+    <string name="pref_default_display_name">Meng Long</string>
+
+    <string-array name="pref_base_theme_list_titles">
+        <item>默认色</item>
+        <item>清新绿</item>
+        <item>活力粉</item>
+        <item>优雅蓝</item>
+        <item>奔放红</item>
+        <item>暗夜黑</item>
+    </string-array>
+    <string-array name="pref_base_theme_list_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
+    <string name="pref_title_choose_a_theme">切换主题</string>
+    <string name="pref_title_version_name">版本号</string>
+    <string name="pref_default_version_name">1.0</string>
+</resources>

@@ -4,4 +4,7 @@
     <dimen name="space_400">400dp</dimen>
     <dimen name="font_size_40px">20sp</dimen>
     <dimen name="space_200">200dp</dimen>
+    <dimen name="space_250">250dp</dimen>
+    <dimen name="space_350">350dp</dimen>
+    <dimen name="space_50">50dp</dimen>
 </resources>

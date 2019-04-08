@@ -1,0 +1,45 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="一般设置">
+        <SwitchPreference
+                android:key="is_open_shortcut_switch"
+                android:title="@string/pref_title_social_recommendations"
+                android:summary="@string/pref_description_social_recommendations"
+                android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="主题设置">
+        <ListPreference
+                android:key="base_theme_list"
+                android:title="@string/pref_title_choose_a_theme"
+                android:defaultValue="-1"
+                android:summary="点击选择"
+                android:entries="@array/pref_base_theme_list_titles"
+                android:entryValues="@array/pref_base_theme_list_values"
+                android:negativeButtonText="Cancel"
+                android:positiveButtonText="OK"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="版本">
+        <EditTextPreference
+                android:selectable="false"
+                android:clickable="true"
+                android:key="developer"
+                android:title="@string/pref_title_display_name"
+                android:summary="@string/pref_default_display_name"
+                android:defaultValue="@string/pref_default_display_name"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+        <EditTextPreference
+                android:selectable="false"
+                android:key="version"
+                android:title="@string/pref_title_version_name"
+                android:summary="@string/pref_default_version_name"
+                android:defaultValue="@string/pref_default_version_name"
+                android:singleLine="true"
+                android:maxLines="1"
+        />
+    </PreferenceCategory>
+</PreferenceScreen>
