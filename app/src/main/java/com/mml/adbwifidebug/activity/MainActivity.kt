@@ -14,6 +14,7 @@ import com.amulyakhare.textdrawable.TextDrawable
 import com.coder.zzq.smartshow.toast.SmartToast
 import com.mml.adbwifidebug.R
 import com.mml.adbwifidebug.utils.*
+import com.mml.android.utils.LogUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 import java.lang.reflect.Method
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         isShortcut = intent.getBooleanExtra("isShortcut", false)
-        LogUtil.i(TAG, "isShortcut:$isShortcut")
+        LogUtils.i(TAG, "isShortcut:$isShortcut")
         setSupportActionBar(toolbar)
         Common.setTitleCenter(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)

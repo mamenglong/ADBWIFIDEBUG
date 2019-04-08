@@ -68,5 +68,5 @@ dependencies {
     //主题
     implementation 'com.github.garretyoder:Colorful:2.3.4'
     //EasyUtils
-    implementation 'com.github.mamenglong:EasyUtils:v1.0.3'
+    implementation 'com.github.mamenglong.EasyUtils:android:v1.1'
 }

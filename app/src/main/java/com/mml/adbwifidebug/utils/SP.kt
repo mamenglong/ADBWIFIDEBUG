@@ -1,14 +1,15 @@
 package com.mml.adbwifidebug.utils
 
 import android.content.Context
-import com.mml.lib.SharedPreferencesUtil
+import com.mml.android.utils.SharedPreferencesUtils
+
 
 /**
  * 项目名称：ADBWIFIDEBUG
  * Created by Long on 2019/3/18.
  * 修改时间：2019/3/18 17:24
  */
-class SP(context: Context) : SharedPreferencesUtil(context) {
+class SP(context: Context) : SharedPreferencesUtils(context) {
     var username by SharedPreferenceDelegates.string(defaultValue = "this is username")
 
     var age by SharedPreferenceDelegates.int()

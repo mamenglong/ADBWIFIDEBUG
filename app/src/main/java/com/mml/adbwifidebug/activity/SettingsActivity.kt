@@ -1,14 +1,11 @@
 package com.mml.adbwifidebug.activity
 
 import android.annotation.SuppressLint
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
 import android.media.RingtoneManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.preference.*
 import android.text.TextUtils
@@ -16,11 +13,9 @@ import android.view.MenuItem
 import com.coder.zzq.smartshow.toast.SmartToast
 import com.mml.adbwifidebug.BuildConfig
 import com.mml.adbwifidebug.R
-import com.mml.adbwifidebug.utils.Common
-import com.mml.adbwifidebug.utils.LogUtil
 import com.mml.adbwifidebug.utils.SP
 import com.mml.adbwifidebug.utils.ThemeManager
-import kotlinx.android.synthetic.main.toolbar.*
+import com.mml.android.utils.LogUtils
 
 /**
  * A [PreferenceActivity] that presents a set of application settings. On
@@ -77,7 +72,7 @@ class SettingsActivity : AppCompatPreferenceActivity(), Preference.OnPreferenceC
      *  false 则不将新值写入sharedPreference文件
      */
     override fun onPreferenceChange(preference: Preference?, newValue: Any?): Boolean {
-        LogUtil.i(tag = TAG, msg = preference!!.key)
+        LogUtils.i(tag = TAG, msg = preference!!.key)
         when (preference.key) {
             "is_open_shortcut_switch" -> {
                 SmartToast.info("已更改设置，重启应用生效！")
@@ -107,22 +102,22 @@ class SettingsActivity : AppCompatPreferenceActivity(), Preference.OnPreferenceC
         when (preference!!.key) {
             "is_open_shortcut_switch" -> {
                 val choice = getPreferenceBoolean(preference)
-                LogUtil.i(tag = TAG, msg = " setOnPreferenceClickListener000$choice")
+                LogUtils.i(tag = TAG, msg = " setOnPreferenceClickListener000$choice")
 
             }
             "base_theme_list" -> {
                 val choice: String = getPreferenceString(preference)
-                LogUtil.i(tag = TAG, msg = choice)
+                LogUtils.i(tag = TAG, msg = choice)
                 bindPreferenceSummaryToValue(preference, choice)
             }
             "developer" -> {
                 val value: String = getPreferenceString(preference)
-                LogUtil.i(tag = TAG, msg = value)
+                LogUtils.i(tag = TAG, msg = value)
                 bindPreferenceSummaryToValue(preference, value)
             }
             "version" -> {
                 val value: String = BuildConfig.VERSION_NAME//getPreferenceString(preference)
-                LogUtil.i(tag = TAG, msg = value)
+                LogUtils.i(tag = TAG, msg = value)
                 bindPreferenceSummaryToValue(preference, value)
             }
         }
@@ -157,7 +152,7 @@ class SettingsActivity : AppCompatPreferenceActivity(), Preference.OnPreferenceC
             val stringValue = value.toString()
 
             if (preference is ListPreference) {
-                LogUtil.i(tag = TAG, msg = preference.key)
+                LogUtils.i(tag = TAG, msg = preference.key)
                 // For list preferences, look up the correct display value in
                 // the preference's 'entries' list.
                 val index = preference.findIndexOfValue(stringValue)

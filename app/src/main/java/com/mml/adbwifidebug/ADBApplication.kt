@@ -6,9 +6,10 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import com.coder.zzq.smartshow.core.SmartShow
 import com.mml.adbwifidebug.activity.SettingsActivity
-import com.mml.adbwifidebug.utils.LogUtil
+
 import com.mml.adbwifidebug.utils.SP
 import com.mml.adbwifidebug.utils.ThemeManager
+import com.mml.android.utils.LogUtils
 import io.multimoon.colorful.*
 
 
@@ -28,7 +29,7 @@ class ADBApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        LogUtil.debug(BuildConfig.DEBUG).saveSd(false)
+        LogUtils.debug(BuildConfig.DEBUG).saveSd(false)
         SmartShow.init(this)
         val defaults: Defaults = Defaults(
             primaryColor = ThemeColor.ORANGE,
@@ -49,18 +50,18 @@ class ADBApplication : Application() {
 
         override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
             Colorful().apply(activity!!, override = true, baseTheme = BaseTheme.THEME_MATERIAL)
-            LogUtil.i(msg = activity.localClassName)
+            LogUtils.i(msg = activity.localClassName)
         }
 
         override fun onActivityPaused(activity: Activity?) {
-            LogUtil.i(msg = activity!!.localClassName)
+            LogUtils.i(msg = activity!!.localClassName)
 
         }
 
         override fun onActivityResumed(activity: Activity?) {
             when (activity) {
                 !is SettingsActivity -> {
-                    LogUtil.i(msg = activity!!.localClassName)
+                    LogUtils.i(msg = activity!!.localClassName)
                     if (ThemeManager.lastTheme != ThemeManager.nowTheme) {
                         activity.recreate()
                         ThemeManager.lastTheme = ThemeManager.nowTheme
@@ -70,19 +71,19 @@ class ADBApplication : Application() {
         }
 
         override fun onActivityStarted(activity: Activity?) {
-            LogUtil.i(msg = activity!!.localClassName)
+            LogUtils.i(msg = activity!!.localClassName)
         }
 
         override fun onActivityDestroyed(activity: Activity?) {
-            LogUtil.i(msg = activity!!.localClassName)
+            LogUtils.i(msg = activity!!.localClassName)
         }
 
         override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
-            LogUtil.i(msg = activity!!.localClassName)
+            LogUtils.i(msg = activity!!.localClassName)
         }
 
         override fun onActivityStopped(activity: Activity?) {
-            LogUtil.i(msg = activity!!.localClassName)
+            LogUtils.i(msg = activity!!.localClassName)
         }
     }
 }
