@@ -3,11 +3,8 @@ package com.mml.adbwifidebug
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import android.preference.PreferenceManager
 import com.coder.zzq.smartshow.core.SmartShow
 import com.mml.adbwifidebug.activity.SettingsActivity
-
-import com.mml.adbwifidebug.utils.SP
 import com.mml.adbwifidebug.utils.ThemeManager
 import com.mml.android.utils.LogUtils
 import io.multimoon.colorful.*

@@ -34,12 +34,10 @@ class ClipboardManagers constructor(private val context: Context) {
     @SuppressLint("ServiceCast")
     fun copy(string: String) {
         // 获取系统剪贴板
-        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        var clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
 // 创建一个剪贴数据集，包含一个普通文本数据条目（需要复制的数据）
         val clipData: ClipData = ClipData.newPlainText("ip地址", string)
-
-// 把数据集设置（复制）到剪贴板
-        clipboard.primaryClip=clipData
+        clipboard.setPrimaryClip(clipData)
     }
 }

@@ -44,7 +44,7 @@ class PreferenceManager<T>(private val name: String, private val default: T) {
             is Float -> getFloat(name, default)
             is Long -> getLong(name, default)
             is Boolean -> getBoolean(name, default)
-            is String -> getString(name, default)
+            is String -> getString(name, default)!!
             else -> throw IllegalArgumentException("SharedPreference can't be get this type")
         }
         return res as T

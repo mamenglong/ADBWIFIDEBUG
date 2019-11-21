@@ -25,10 +25,10 @@ class TimeManager() : Thread()  {
     override fun run() {
         do {
             try {
-                Thread.sleep(1000)
                 val msg = Message()
                 msg.what = msgKey1
                 mHandler.sendMessage(msg)
+                Thread.sleep(1000)
             } catch (e: InterruptedException) {
                 e.printStackTrace()
             }
